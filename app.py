@@ -32,7 +32,7 @@ client1.on_message = on_message
 
 st.title("MQTT Control")
 
-if st.button('AbrirPuerta'):
+if st.button('Abrir Puerta'):
     act1="abrir"
     client1= paho.Client("fincaSystem")                           
     client1.on_publish = on_publish                          
@@ -46,8 +46,24 @@ if st.button('AbrirPuerta'):
 else:
     st.write('')
 
-if st.button('CerrarPuerta'):
+if st.button('Cerrar Puerta'):
     act1="cerrar"
+    client1= paho.Client("fincaSystem")                          
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("finca/puerta", message)
+
+if st.button('Prender Luz Interna'):
+    act1="luzInterna"
+    client1= paho.Client("fincaSystem")                          
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("finca/puerta", message)
+
+if st.button('Apagar Luz Interna'):
+    act1="luzInternaOff"
     client1= paho.Client("fincaSystem")                          
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
