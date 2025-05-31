@@ -70,8 +70,16 @@ if st.button('Apagar Luz Interna'):
     message =json.dumps({"Act1":act1})
     ret= client1.publish("finca/puerta", message)
 
-if st.button('Prender alarma Externa'):
+if st.button('Prender alarma Interna'):
     act1="alarmaInterna"
+    client1= paho.Client("fincaSystem")                          
+    client1.on_publish = on_publish                          
+    client1.connect(broker,port)  
+    message =json.dumps({"Act1":act1})
+    ret= client1.publish("finca/puerta", message)
+
+if st.button('Prender alarma Externa'):
+    act1="alarmaExterna"
     client1= paho.Client("fincaSystem")                          
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
