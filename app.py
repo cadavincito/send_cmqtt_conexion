@@ -87,7 +87,15 @@ client1.connect(broker, port)
 
 st.title("Finca Control System")
 
-st.image("finca.jpg", caption="Finca system", width=400)
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="finca.jpg" alt="Finca system" style="width: 300px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
+        <p style="color: white; font-weight: bold;">Finca system</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Lista de botones con sus comandos asociados
 botones = [
