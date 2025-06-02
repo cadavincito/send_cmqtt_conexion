@@ -40,7 +40,7 @@ message =json.dumps({"Act1":controlTexto})
 ret= client1.publish("finca/puerta", message)
 
 
-if st.button('AbrirPuerta'):
+if st.button('Enviar Valor'):
     act1="controlTexto"
     client1= paho.Client("fincaSystem")                           
     client1.on_publish = on_publish                          
@@ -52,35 +52,12 @@ if st.button('AbrirPuerta'):
  
     #client1.subscribe("Sensores")
     
+
     
 else:
     st.write('')
 
-if st.button('CerrarPuerta'):
-    act1="cerrar"
-    client1= paho.Client("fincaSystem")                          
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
-    ret= client1.publish("finca/puerta", message)
-  
-    
-else:
-    st.write('')
 
-values = st.slider('Selecciona el rango de valores',0.0, 100.0)
-st.write('Values:', values)
-
-if st.button('Enviar valor analógico'):
-    client1= paho.Client("GIT-HUB")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)   
-    message =json.dumps({"Analog": float(values)})
-    ret= client1.publish("cmqtt_a", message)
-    
- 
-else:
-    st.write('')
 
 
 
