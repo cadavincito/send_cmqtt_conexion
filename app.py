@@ -57,7 +57,7 @@ st.markdown("""
         display: block;
         margin: 0 auto;
         border-radius: 10px; /* Bordes redondeados para la imagen */
-        width: 40%; /* Limita el ancho de la imagen */
+        width: 300px; /* Limita el ancho de la imagen */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para un efecto moderno */
     }
     </style>
