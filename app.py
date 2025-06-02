@@ -81,7 +81,7 @@ for i in range(0, len(botones), 2):  # Iterar de 2 en 2
     # Verificar si hay un segundo botón en el par
     if i + 1 < len(botones):
         with col2:
-            if st.button(botones[i + 1][0], key=botones[i + 1][1]):
+            if st.button(botones[i + 1][0], key=botones[i + 1][1]):  # Corregido el carácter no válido
                 act1 = botones[i + 1][1]
                 message = json.dumps({"Act1": act1})
                 ret = client1.publish("finca/puerta", message)
