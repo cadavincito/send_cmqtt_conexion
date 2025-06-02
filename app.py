@@ -4,6 +4,29 @@ import streamlit as st
 import json
 import platform
 
+# Inyectar CSS para centrar todos los elementos
+st.markdown("""
+    <style>
+    .stApp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .stButton > button {
+        display: block;
+        margin: 0 auto;
+    }
+    .stTextInput > div > div > input {
+        display: block;
+        margin: 0 auto;
+    }
+    .stMarkdown, .stSuccess, .stWrite {
+        text-align: center;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # Muestra la versión de Python junto con detalles adicionales
 st.write("Versión de Python:", platform.python_version())
 
@@ -47,7 +70,7 @@ mensaje_confirmacion = st.empty()
 
 # Organizar botones en pares paralelos
 for i in range(0, len(botones), 2):  # Iterar de 2 en 2
-    col1, col2 = st.columns(2)  # Crear dos columnas
+    col1, col2 = st.columns([1, 1], gap="small")  # Crear dos columnas con igual ancho
     with col1:
         if st.button(botones[i][0], key=botones[i][1]):
             act1 = botones[i][1]
@@ -58,7 +81,7 @@ for i in range(0, len(botones), 2):  # Iterar de 2 en 2
     # Verificar si hay un segundo botón en el par
     if i + 1 < len(botones):
         with col2:
-            if st.button(botones[i + 1][0], key=botones[i + 1][1]):
+            if st.button(botones[i + 1][0], key=botones[i + 1][1]):
                 act1 = botones[i + 1][1]
                 message = json.dumps({"Act1": act1})
                 ret = client1.publish("finca/puerta", message)
