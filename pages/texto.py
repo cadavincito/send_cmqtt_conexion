@@ -44,11 +44,7 @@ ret= client1.publish("finca/puerta", message)
 
  
     #client1.subscribe("Sensores")
-    
 
-    
-else:
-    st.write('')
 
 
 
