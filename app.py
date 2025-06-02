@@ -52,17 +52,25 @@ st.markdown("""
         margin: 10px auto;
         text-align: center;
     }
-
+    .stImage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
     .stImage > img {
         display: block;
         margin: 0 auto;
         border-radius: 10px; /* Bordes redondeados para la imagen */
-        width: 300px; /* Limita el ancho de la imagen */
+        width: 300px; /* Tamaño fijo para la imagen */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para un efecto moderno */
+    }
+    .stImage > div > p {
+        color: #ffffff; /* Caption en texto blanco */
+        text-align: center;
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 values = 0.0
 act1 = "OFF"
@@ -87,7 +95,8 @@ client1.connect(broker, port)
 
 st.title("Finca Control System")
 
-st.image("finca.jpg", caption="Finca system", width=400)
+# Añadir la imagen centrada
+st.image("finca.jpg", caption="Finca system", use_container_width=False)
 
 # Lista de botones con sus comandos asociados
 botones = [
