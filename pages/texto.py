@@ -45,8 +45,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Muestra la versión de Python
-st.write("Versión de Python:", platform.python_version())
+
 
 values = 0.0
 act1 = "OFF"
