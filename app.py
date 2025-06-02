@@ -4,30 +4,59 @@ import streamlit as st
 import json
 import platform
 
-# Inyectar CSS para centrar todos los elementos
+# Inyectar CSS para dark mode y centrar elementos
 st.markdown("""
     <style>
     .stApp {
+        background-color: #1e1e2e; /* Fondo oscuro */
+        color: #ffffff; /* Texto blanco */
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        font-family: 'Arial', sans-serif;
     }
     .stButton > button {
         display: block;
-        margin: 0 auto;
+        margin: 10px auto;
+        background-color: #3b82f6; /* Azul vibrante para botones */
+        color: #ffffff; /* Texto blanco en botones */
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .stButton > button:hover {
+        background-color: #2563eb; /* Azul más oscuro al pasar el ratón */
+        transform: scale(1.05); /* Efecto de aumento */
     }
     .stTextInput > div > div > input {
         display: block;
         margin: 0 auto;
+        background-color: #2a2a3a; /* Fondo oscuro para inputs */
+        color: #ffffff; /* Texto blanco */
+        border: 1px solid #4b4b5b;
+        border-radius: 8px;
     }
-    .stMarkdown, .stSuccess, .stWrite {
+    .stMarkdown, .stWrite, h1 {
+        color: #ffffff; /* Texto blanco */
+        text-align: center;
+    }
+    .stSuccess {
+        background-color: #166534; /* Fondo verde oscuro para mensajes de éxito */
+        color: #ffffff; /* Texto blanco */
+        border-radius: 8px;
+        padding: 10px;
+        margin: 10px auto;
         text-align: center;
     }
     </style>
 """, unsafe_allow_html=True)
 
-
+# Muestra la versión de Python
+st.write("Versión de Python:", platform.python_version())
 
 values = 0.0
 act1 = "OFF"
@@ -80,7 +109,7 @@ for i in range(0, len(botones), 2):  # Iterar de 2 en 2
     # Verificar si hay un segundo botón en el par
     if i + 1 < len(botones):
         with col2:
-            if st.button(botones[i + 1][0], key=botones[i + 1][1]):  # Corregido el carácter no válido
+            if st.button(botones[i + 1][0], key=botones[i + 1][1]):
                 act1 = botones[i + 1][1]
                 message = json.dumps({"Act1": act1})
                 ret = client1.publish("finca/puerta", message)
