@@ -91,4 +91,15 @@ comandos = [
     ("cerrar", "Cierra la puerta"),
     ("luzInterna", "Prende luz interna"),
     ("luzInternaOff", "Apaga la luz interna"),
-    ("luzExterna", "Prende luz Ex
+    ("luzExterna", "Prende luz Externa"),
+    ("luzExternaOff", "Apaga la luz Externa"),
+    ("alarmaInterna", "Enciende la alarma Interna"),
+    ("alarmaExterna", "Enciende la alarma Externa")
+]
+
+# Mostrar cada comando como un elemento de lista
+for comando, descripcion in comandos:
+    st.write(f"**{comando}** -> {descripcion}")
+
+# Opcional: Suscripción a un tópico (descomentar si es necesario)
+# client1.subscribe("Sensores")
