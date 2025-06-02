@@ -30,22 +30,22 @@ client1.on_message = on_message
 
 
 
-st.title("MQTT Control")
+st.title("Finca system control por texto")
 
-controlPuerta = st.text_input("Control puerta")
+controlTexto = st.text_input("Control por texto")
 client1= paho.Client("fincaSystem")                           
 client1.on_publish = on_publish                          
 client1.connect(broker,port)  
-message =json.dumps({"Act1":controlPuerta})
+message =json.dumps({"Act1":controlTexto})
 ret= client1.publish("finca/puerta", message)
 
 
 if st.button('AbrirPuerta'):
-    act1="abrir"
+    act1="controlTexto"
     client1= paho.Client("fincaSystem")                           
     client1.on_publish = on_publish                          
     client1.connect(broker,port)  
-    message =json.dumps({"Act1":act1})
+    message =json.dumps({"Act1":controlTexto})
     ret= client1.publish("finca/puerta", message)
 
 
