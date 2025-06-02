@@ -40,13 +40,6 @@ message =json.dumps({"Act1":controlTexto})
 ret= client1.publish("finca/puerta", message)
 
 
-if st.button('Enviar Valor'):
-    act1="controlTexto"
-    client1= paho.Client("fincaSystem")                           
-    client1.on_publish = on_publish                          
-    client1.connect(broker,port)  
-    message =json.dumps({"Act1":controlTexto})
-    ret= client1.publish("finca/puerta", message)
 
 
  
