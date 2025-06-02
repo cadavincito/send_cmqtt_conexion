@@ -52,6 +52,14 @@ st.markdown("""
         margin: 10px auto;
         text-align: center;
     }
+
+    .stImage > img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 10px; /* Bordes redondeados para la imagen */
+        max-width: 80%; /* Limita el ancho de la imagen */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para un efecto moderno */
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -80,6 +88,8 @@ client1.on_publish = on_publish
 client1.connect(broker, port)
 
 st.title("Finca Control System")
+
+st.image("finca.jpg", caption="Una finca en acción", use_column_width=False)
 
 # Lista de botones con sus comandos asociados
 botones = [
