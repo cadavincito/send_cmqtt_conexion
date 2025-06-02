@@ -89,7 +89,7 @@ client1.connect(broker, port)
 
 st.title("Finca Control System")
 
-st.image("finca.jpg", caption="Finca system", use_column_width=False)
+st.image("finca.jpg", caption="Finca system")
 
 # Lista de botones con sus comandos asociados
 botones = [
