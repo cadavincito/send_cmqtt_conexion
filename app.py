@@ -57,14 +57,12 @@ st.markdown("""
         display: block;
         margin: 0 auto;
         border-radius: 10px; /* Bordes redondeados para la imagen */
-        max-width: 40%; /* Limita el ancho de la imagen */
+        width: 40%; /* Limita el ancho de la imagen */
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para un efecto moderno */
     }
     </style>
 """, unsafe_allow_html=True)
 
-# Muestra la versión de Python
-st.write("Versión de Python:", platform.python_version())
 
 values = 0.0
 act1 = "OFF"
